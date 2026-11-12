@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>رِفْق</title>
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#06100c">
+<link rel="icon" href="icon-192.png">
+<link href="https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@500;700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:dark;--bg:#06100c;--surface:#0d1f17;--surface2:#12291e;--line:#1f3d2e;--em:#1f8f68;--em-d:#0f5a41;--gold:#c9a45c;--text:#f3ecd9;--muted:#9fb3a6;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box;margin:0}
+body{background:var(--bg);color:var(--text);font-family:"Tajawal",system-ui,sans-serif;line-height:1.7;min-height:100vh;padding-bottom:calc(84px + env(safe-area-inset-bottom,0px))}
+main{max-width:560px;margin:0 auto;padding:20px 18px}
+h1,h2,h3{font-family:"Reem Kufi","Tajawal",serif;font-weight:700}
+.brand{display:flex;align-items:baseline;justify-content:space-between}
+.brand h1{font-size:2rem;color:var(--gold);letter-spacing:.02em}
+.brand span{color:var(--muted);font-size:.85rem}
+.slogan{color:var(--muted);font-size:.95rem;margin:2px 0 20px}
+.hero{background:linear-gradient(160deg,var(--em-d),var(--surface) 70%);border:1px solid var(--line);border-radius:22px;padding:20px;display:flex;align-items:center;gap:18px}
+.ring{position:relative;width:104px;height:104px;flex:none}
+.ring svg{width:100%;height:100%;transform:rotate(90deg) scaleX(-1)}
+.ring b{position:absolute;inset:0;display:grid;place-items:center;font-family:"Reem Kufi";font-size:1.5rem;color:var(--gold)}
+.hero h2{font-size:1.25rem}
+.hero p{color:var(--muted);font-size:.92rem}
+.sec{display:flex;justify-content:space-between;align-items:center;margin:26px 0 10px}
+.sec h3{font-size:1.15rem}
+.sec small{color:var(--muted)}
+.task{display:flex;align-items:center;gap:12px;width:100%;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin-bottom:8px;color:var(--text);font:inherit;text-align:start;cursor:pointer}
+.task:focus-visible,.nav button:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.chk{width:24px;height:24px;border-radius:50%;border:2px solid var(--em);flex:none;display:grid;place-items:center;transition:background .2s}
+.task.done .chk{background:var(--em)}
+.task.done .chk::after{content:"✓";font-size:.8rem;color:var(--bg)}
+.task.done .t{text-decoration:line-through;color:var(--muted)}
+.t{flex:1}
+.time{color:var(--gold);font-size:.85rem;white-space:nowrap}
+.tag{font-size:.72rem;color:var(--muted);border:1px solid var(--line);border-radius:99px;padding:0 8px}
+.tag.fx{color:var(--gold);border-color:var(--gold)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px;color:var(--muted)}
+.card strong{color:var(--text)}
+.empty{text-align:center;padding:48px 16px}
+.empty h2{color:var(--gold);margin-bottom:8px}
+.empty p{color:var(--muted)}
+.nav{position:fixed;inset:auto 0 0 0;background:rgba(6,16,12,.94);backdrop-filter:blur(10px);border-top:1px solid var(--line);display:flex;justify-content:space-around;padding:8px 4px calc(8px + env(safe-area-inset-bottom,0px))}
+.nav button{background:none;border:0;color:var(--muted);font:inherit;font-size:.72rem;display:flex;flex-direction:column;align-items:center;gap:2px;padding:4px 6px;cursor:pointer;border-radius:10px;min-width:52px}
+.nav button svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.nav button.on{color:var(--gold)}
+.view{display:none}.view.on{display:block}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+
+.row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+input,select,textarea{background:var(--surface2);border:1px solid var(--line);color:var(--text);border-radius:10px;padding:9px 10px;font:inherit;max-width:100%}
+textarea{width:100%;min-height:60px;margin-bottom:8px}
+.btn{background:var(--em-d);border:1px solid var(--em);color:var(--text);border-radius:10px;padding:8px 14px;font:inherit;cursor:pointer;text-decoration:none;display:inline-block}
+.btn.g{background:none;border-color:var(--gold);color:var(--gold)}.btn.s{padding:3px 10px;font-size:.8rem}
+.links{display:grid;grid-template-columns:1fr 1fr;gap:8px}.links .btn{text-align:center}
+.bar{height:8px;background:var(--line);border-radius:9px;overflow:hidden;margin:6px 0}.bar i{display:block;height:100%;background:var(--gold)}
+.big{font-family:"Reem Kufi";font-size:2rem;color:var(--gold);text-align:center}
+.p1{border-inline-start:3px solid var(--gold)}.hint{color:var(--muted);font-size:.82rem}
+.cols{display:flex;gap:6px;align-items:flex-end;height:90px}.cols div{flex:1;text-align:center;font-size:.7rem;color:var(--muted)}.cols i{display:block;background:var(--em);border-radius:5px 5px 0 0;margin-bottom:3px}
+#sl{display:none;position:fixed;inset:0;z-index:99;background:#000;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:24px;text-align:center}#sl.on{display:flex}#sl .clk{font-family:"Reem Kufi";font-size:4rem;color:#6b5a30}#sl .btn{font-size:1.1rem;padding:14px 28px}
+</style>
+</head>
+<body>
+<main>
+<div class="brand"><h1>رِفْق</h1><span id="date"></span></div>
+<p class="slogan">نحو حياة أكثر انضباطاً، وقلب أكثر قرباً من الله</p>
+
+<section class="view on" id="v-home"></section>
+<section class="view" id="v-day"></section>
+<section class="view" id="v-faith"></section>
+<section class="view" id="v-dev"></section>
+<section class="view" id="v-health"></section>
+<section class="view" id="v-stats"></section>
+</main>
+<div id="sl"><div class="clk" id="slc"></div><p class="hint">وضع النوم. الشاشة هادئة، ولا شيء يشغلك.</p><div id="slb" class="row" style="justify-content:center"></div><button class="btn s" id="slx" style="margin-top:30px;opacity:.6">اضغط مطولاً ٣ ثوانٍ للخروج</button></div>
+<nav class="nav" id="nav"></nav>
+<script>
+const AR=n=>String(n).replace(/\d/g,d=>"٠١٢٣٤٥٦٧٨٩"[d]);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const day=(o=0)=>{const d=new Date();d.setDate(d.getDate()-o);return d.toISOString().slice(0,10)};
+const TD=day();
+const DEF={tasks:[
+{id:"a1",t:"الاستيقاظ والفجر",s:"05:00",e:"05:30",k:"ثابتة",p:1},
+{id:"a2",t:"أذكار الصباح",s:"05:30",e:"05:38",k:"ثابتة",p:1},
+{id:"a3",t:"تطوير الذات",s:"10:00",e:"10:45",k:"مرنة",p:2},
+{id:"a4",t:"التمرين",s:"16:00",e:"17:00",k:"ثابتة",p:1},
+{id:"a5",t:"النوم",s:"21:30",e:"22:00",k:"ثابتة",p:1}],
+done:{},pr:{},qr:{},ad:{},wt:{},dv:{},rv:{},wk:{},
+links:[{n:"ترتيل",u:"intent://#Intent;package=com.mmmoussa.iqra;S.browser_fallback_url=https%3A%2F%2Fwww.tarteel.ai;end"},{n:"تطوير الذات",u:"tab:dev"}]};
+let S;try{S=Object.assign({},DEF,JSON.parse(localStorage.getItem("rifq2")||"{}"))}catch(e){S=DEF}
+const save=()=>{try{localStorage.setItem("rifq2",JSON.stringify(S))}catch(e){}};
+const dd=(m)=>(S[m][TD]=S[m][TD]||{});
+const PR=[["fajr","الفجر"],["dhuhr","الظهر"],["asr","العصر"],["maghrib","المغرب"],["isha","العشاء"]];
+const TRK=[["mgmt","الإدارة والقيادة"],["eng","الإنجليزية"],["char","تقوية الشخصية"],["iman","الإيمان وتطوير النفس"]];
+const hm=m=>{m=((m%1440)+1440)%1440;return String(Math.floor(m/60)).padStart(2,"0")+":"+String(m%60).padStart(2,"0")};
+const mins=t=>{const[a,b]=t.split(":");return+a*60+ +b};
+const pct=(date)=>{const d=S.done[date]||{};return S.tasks.length?Math.round(S.tasks.filter(x=>d[x.id]).length/S.tasks.length*100):0};
+const devMin=(date)=>Object.values(S.dv[date]||{}).reduce((a,b)=>a+b,0);
+function go(id){document.querySelectorAll(".view").forEach(v=>v.classList.toggle("on",v.id==="v-"+id));document.querySelectorAll("#nav button").forEach(b=>b.classList.toggle("on",b.dataset.id===id));scrollTo(0,0)}
+function linkHtml(l,i,del){const t=l.u.startsWith("tab:");return (t?'<button class="btn g" onclick="go(\''+l.u.slice(4)+'\')">':'<a class="btn g" target="_blank" rel="noopener" href="'+esc(l.u)+'">')+esc(l.n)+(t?'</button>':'</a>')+(del?'<button class="btn s" onclick="delLink('+i+')">حذف</button>':'')}
+function delLink(i){S.links.splice(i,1);save();render()}
+function addLink(){const n=document.getElementById("ln").value.trim(),u=document.getElementById("lu").value.trim();if(!n||!u)return;S.links.push({n,u});save();render()}
+function tog(id){const d=(S.done[TD]=S.done[TD]||{});d[id]=!d[id];save();render()}
+function delT(id){S.tasks=S.tasks.filter(x=>x.id!==id);save();render()}
+function post(id){const x=S.tasks.find(t=>t.id===id);x.s=hm(mins(x.s)+30);x.e=hm(mins(x.e)+30);save();render()}
+function addT(){const t=document.getElementById("nt").value.trim();if(!t)return;S.tasks.push({id:"t"+Date.now(),t,s:nts.value,e:nte.value,k:ntk.value,p:+ntp.value});save();render()}
+function setPr(k){const d=dd("pr");d[k]=!d[k];save();render()}
+function qr(v){const d=dd("qr");d.v=Math.max(0,(d.v||0)+v);save();render()}
+function water(v){const d=dd("wt");d.v=Math.max(0,(d.v||0)+v);save();render()}
+function devAdd(k,v){const d=dd("dv");d[k]=Math.max(0,(d[k]||0)+v);save();render()}
+let tm=null,left=480;
+function adh(){if(tm){clearInterval(tm);tm=null;render();return}tm=setInterval(()=>{left--;if(left<=0){clearInterval(tm);tm=null;left=480;dd("ad").v=1;save();render();return}const e=document.getElementById("clk");if(e)e.textContent=AR(Math.floor(left/60))+":"+AR(String(left%60).padStart(2,"0"))},1000);render()}
+function saveRv(){const o={};document.querySelectorAll(".rv").forEach(e=>o[e.dataset.q]=e.value);S.rv[day()]=o;save();alert("تم حفظ المراجعة")}
+const RQ=["ما أهم إنجاز حققته؟","ما المهام التي لم تنجزها؟","ما العادة التي تحسنت؟","ما المشكلة التي واجهتك؟","ماذا تعلمت هذا الأسبوع؟","ما المهارة التي تحتاج إلى تطوير؟","ما أهم هدف للأسبوع القادم؟"];
+
+S.ls=S.ls||{};let openL=-1,pickd=-1;
+const LS=[
+{t:"الأهم قبل العاجل",b:"صنّف مهامك بحسب أهميتها وعجلتها. ابدأ بالمهم حتى لو لم يكن عاجلاً، وإلا ضاع يومك في إطفاء الحرائق.",ex:"صاحب ورشة يقضي أيامه في إصلاح الأعطال، ولا يخصص وقتاً للصيانة الدورية، فتتكرر الأعطال نفسها.",sit:"صباحاً أمامك: عميل غاضب يتصل، وجدولة صيانة دورية، وترتيب المكتب. ماذا تفعل؟",o:["أبدأ بترتيب المكتب كي أرتاح","أرد على العميل، ثم أخصص أول ساعة متاحة للصيانة قبل أي شيء ثانوي","أؤجل الصيانة إلى الأسبوع القادم"],c:1,fb:["الترتيب مهمة غير مهمة الآن.","صحيح: العاجل يُعالج، والمهم غير العاجل يأخذ وقتاً محجوزاً.","التأجيل المتكرر هو سبب تراكم المشاكل."],ex2:"اكتب مهام الغد، وضع بجانب كل مهمة: مهم أو عاجل أو كلاهما.",sum:"احجز كل يوم ساعة ثابتة لمهمة مهمة غير عاجلة."},
+{t:"توزيع المهام",b:"المهمة الواضحة لها أربعة أركان: من ينفذ، وما المطلوب بالضبط، ومتى، وكيف أعرف أنها تمت.",ex:"قلت لعامل «رتب المستودع» فرتّب ما رآه مناسباً، ولم تجد ما أردت.",sit:"أي صيغة أفضل لتكليف عامل؟",o:["رتّب المستودع","رتّب الرفوف أ إلى ج حسب النوع قبل ظهر الغد، وأرسل لي صورة","أنا أعلم أنك تعرف ما أريد"],c:1,fb:["غامضة، ولا معيار فيها.","صحيح: مسؤول وتفصيل وموعد ودليل إنجاز.","الافتراض يُنتج سوء فهم."],ex2:"اختر مهمة كلّفت بها أحداً مؤخراً، وأعد كتابتها بالأركان الأربعة.",sum:"لا تكلّف بدون موعد ومعيار إنجاز."},
+{t:"العامل المقصّر",b:"ابدأ بالوقائع لا بالاتهام. اسأل عن السبب، ثم اتفقا على خطوة محددة وموعد مراجعة.",ex:"عامل تأخر ثلاث مرات هذا الشهر، وسبب ذلك قد يكون ظرفاً لا تعرفه.",sit:"ما أفضل تصرف؟",o:["أوبّخه أمام الجميع ليتعظ غيره","أكلمه على انفراد: أذكر المرات الثلاث، وأسأله عن السبب، ونتفق على التزام ومراجعة بعد أسبوع","أتجاهل حتى يتراكم الأمر"],c:1,fb:["الإحراج العلني يخسّرك ولاءه.","صحيح: واقعة، وسؤال، واتفاق، ومتابعة.","التجاهل يعلّم الجميع أن التقصير مقبول."],ex2:"سمِّ عاملاً عندك يحتاج حديثاً كهذا، وحدد متى ستكلمه.",sum:"الحزم مع الاحترام، والمتابعة أهم من الغضب."},
+{t:"القرار تحت الضغط",b:"اجمع الحقائق الأساسية، وحدد خيارين أو ثلاثة، واختر، وضع موعد مراجعة. القرار القابل للتراجع لا يحتاج كمالاً.",ex:"عطل في منتصف الليل، وتحتاج إلى قرار: إيقاف خط الإنتاج أم تكميل الطلبية.",sit:"ما الأنسب؟",o:["أنتظر الصباح حتى أستشير الجميع","أحصل على أهم ثلاث معلومات، وأقرر، وأحدد متى أراجع القرار","أتخذ القرار الأسرع دون أي معلومات"],c:1,fb:["التأخير قد يكبّد الخسارة أكثر.","صحيح: معلومات كافية، وقرار، ومراجعة.","السرعة دون معلومات مقامرة."],ex2:"تذكّر قراراً أخّرته، واكتب الخيارات والموعد الذي ستقرر فيه.",sum:"قرار ناقص يُراجع خير من قرار كامل متأخر."}];
+function openLesson(i){openL=i;pickd=-1;render()}
+function pickA(j){pickd=j;if(j===LS[openL].c){S.ls[openL]=1;save()}render()}
+function closeL(){openL=-1;render()}
+function lessonsHtml(){
+ if(openL>=0){const l=LS[openL];return '<div class="sec"><h3>'+esc(l.t)+'</h3><button class="btn s" onclick="closeL()">رجوع</button></div><div class="card"><p><strong>الشرح:</strong> '+esc(l.b)+'</p><p><strong>مثال:</strong> '+esc(l.ex)+'</p><p><strong>الموقف:</strong> '+esc(l.sit)+'</p>'+l.o.map((o,j)=>'<button class="task" onclick="pickA('+j+')">'+esc(o)+'</button>').join("")+(pickd>=0?'<p><strong>'+(pickd===l.c?"إجابة صحيحة. ":"حاول مجدداً. ")+'</strong>'+esc(l.fb[pickd])+'</p>':'')+(pickd===l.c?'<p><strong>التمرين:</strong> '+esc(l.ex2)+'</p><p><strong>الخلاصة:</strong> '+esc(l.sum)+'</p>':'')+'</div>'}
+ return '<div class="sec"><h3>دروس الإدارة العملية</h3><small>'+AR(Object.keys(S.ls).length)+' من '+AR(LS.length)+'</small></div>'+LS.map((l,i)=>'<div class="task'+(S.ls[i]?" done":"")+'" onclick="openLesson('+i+')"><span class="chk"></span><span class="t">'+esc(l.t)+'</span></div>').join("")+'<p class="hint">الدروس من كتابتي كمنهج عملي عام، وليست منقولة من كتاب بعينه.</p>'}
+const SRC=[["الإنجليزية",[["British Council LearnEnglish","https://learnenglish.britishcouncil.org"],["BBC Learning English","https://www.bbc.co.uk/learningenglish"],["VOA Learning English","https://learningenglish.voanews.com"]]],["الإدارة والشخصية",[["إدراك","https://www.edraak.org"],["رواق","https://www.rwaq.org"]]],["الحديث والإيمان",[["الدرر السنية: الموسوعة الحديثية","https://dorar.net/hadith"],["الإسلام سؤال وجواب","https://islamqa.info/ar"]]],["بودكاست",[["فنجان","https://www.youtube.com/results?search_query=%D9%81%D9%86%D8%AC%D8%A7%D9%86"],["من زكاها","https://www.youtube.com/@osamagad"],["فاهم","https://www.youtube.com/results?search_query=%D8%A8%D9%88%D8%AF%D9%83%D8%A7%D8%B3%D8%AA+%D9%81%D8%A7%D9%87%D9%85"]]]];
+function sourcesHtml(){return '<div class="sec"><h3>مصادر موثوقة</h3></div>'+SRC.map(g=>'<div class="card" style="margin-bottom:8px"><strong>'+g[0]+'</strong><div class="links" style="margin-top:8px">'+g[1].map(x=>'<a class="btn g" target="_blank" rel="noopener" href="'+x[1]+'">'+x[0]+'</a>').join("")+'</div></div>').join("")+'<p class="hint">تحقق من الروابط على هاتفك. رابط الفيديو في البودكاست ينقلك لبحث أو قناة على يوتيوب.</p>'}
+
+S.hd=S.hd||{saved:{}};let hdOff=0,showRv=false;
+const HD=[
+{n:1,t:"إِنَّمَا الْأَعْمَالُ بِالنِّيَّاتِ، وَإِنَّمَا لِكُلِّ امْرِئٍ مَا نَوَى، فَمَنْ كَانَتْ هِجْرَتُهُ إِلَى اللَّهِ وَرَسُولِهِ فَهِجْرَتُهُ إِلَى اللَّهِ وَرَسُولِهِ، وَمَنْ كَانَتْ هِجْرَتُهُ لِدُنْيَا يُصِيبُهَا أَوِ امْرَأَةٍ يَنْكِحُهَا فَهِجْرَتُهُ إِلَى مَا هَاجَرَ إِلَيْهِ",r:"عمر بن الخطاب",src:"البخاري (١) ومسلم (١٩٠٧)",g:"صحيح، متفق عليه",ex:"قيمة العمل عند الله بقصد صاحبه.",use:"قبل كل عمل اليوم، استحضر نيتك فيه."},
+{n:12,t:"مِنْ حُسْنِ إِسْلَامِ الْمَرْءِ تَرْكُهُ مَا لَا يَعْنِيهِ",r:"أبو هريرة",src:"الترمذي (٢٣١٧) وابن ماجه (٣٩٧٦)",g:"حسن عند النووي، صحيح عند الألباني",ex:"من كمال الإسلام ترك الفضول وما لا نفع فيه.",use:"اترك اليوم أمراً واحداً يضيّع وقتك ولا يعنيك."},
+{n:13,t:"لَا يُؤْمِنُ أَحَدُكُمْ حَتَّى يُحِبَّ لِأَخِيهِ مَا يُحِبُّ لِنَفْسِهِ",r:"أنس بن مالك",src:"البخاري (١٣) ومسلم (٤٥)",g:"صحيح، متفق عليه",ex:"كمال الإيمان في سلامة القلب للناس.",use:"أعن اليوم زميلاً أو عاملاً على شيء تحبه لنفسك."},
+{n:15,t:"مَنْ كَانَ يُؤْمِنُ بِاللَّهِ وَالْيَوْمِ الْآخِرِ فَلْيَقُلْ خَيْرًا أَوْ لِيَصْمُتْ",r:"أبو هريرة",src:"البخاري (٦٠١٨) ومسلم (٤٧)",g:"صحيح، متفق عليه",ex:"الكلام إما خير أو الأولى الصمت.",use:"قبل أن تنتقد عاملاً، اسأل: هل كلامي سيصلح شيئاً؟"},
+{n:16,t:"أن رجلاً قال للنبي ﷺ: أَوْصِنِي، قال: «لَا تَغْضَبْ»، فَرَدَّدَ مِرَارًا، قال: «لَا تَغْضَبْ»",r:"أبو هريرة",src:"البخاري (٦١١٦)",g:"صحيح",ex:"الغضب مفتاح شرور، والوصية بالتحكم فيه.",use:"إن غضبت اليوم فاصمت واخرج من الموقف لحظة قبل أن تتكلم."},
+{n:20,t:"إِنَّ مِمَّا أَدْرَكَ النَّاسُ مِنْ كَلَامِ النُّبُوَّةِ الْأُولَى: إِذَا لَمْ تَسْتَحِ فَاصْنَعْ مَا شِئْتَ",r:"أبو مسعود البدري",src:"البخاري (٣٤٨٣)",g:"صحيح",ex:"الحياء يمنع من القبيح، ومن فقده لم يردعه شيء.",use:"اجعل الحياء ميزاناً لأفعالك اليوم."},
+{n:32,t:"لَا ضَرَرَ وَلَا ضِرَارَ",r:"أبو سعيد الخدري",src:"ابن ماجه وأحمد وغيرهما",g:"حسن عند النووي، صحيح عند الألباني",ex:"لا تؤذِ أحداً ابتداءً ولا ردّاً بما يضره.",use:"راجع قراراتك اليوم: هل فيها أذى لعامل أو شريك؟"}];
+const hdI=()=>(Math.floor((new Date()-new Date(new Date().getFullYear(),0,0))/864e5)+hdOff)%HD.length;
+function hdSave(i){S.hd.saved[i]=TD;save();render()}
+function hdNext(){hdOff++;render()}
+function hdRv(){showRv=!showRv;render()}
+function hadithHtml(){
+ const i=hdI(),h=HD[i],sv=Object.keys(S.hd.saved);
+ const dor='https://dorar.net/hadith/search?q='+encodeURIComponent(h.t.slice(0,40));
+ let o='<div class="sec"><h3>حديث اليوم</h3><button class="btn s" onclick="hdNext()">حديث آخر</button></div><div class="card" style="color:var(--text)"><p style="font-size:1.15rem;line-height:2">«'+esc(h.t)+'»</p><p class="hint">الراوي: '+h.r+' · الأربعون النووية رقم '+AR(h.n)+'<br>المصدر: '+h.src+'<br>الدرجة: '+h.g+'</p><p><strong>الشرح المبسط:</strong> '+h.ex+'</p><p><strong>فائدة عملية:</strong> '+h.use+'</p><div class="row"><button class="btn" onclick="hdSave('+i+')">'+(S.hd.saved[i]?"✓ حفظته":"سجّلت حفظه")+'</button><a class="btn g" target="_blank" rel="noopener" href="'+dor+'">تحقق في الدرر</a></div></div>';
+ if(sv.length){const r=HD[+sv[(new Date().getDate())%sv.length]];o+='<div class="sec"><h3>مراجعة</h3><small>'+AR(sv.length)+' محفوظ</small></div><div class="card" style="color:var(--text)">أكمل الحديث الذي يبدأ بـ: <strong>'+esc(r.t.split(" ").slice(0,3).join(" "))+'...</strong><p>'+(showRv?esc(r.t):'')+'</p><button class="btn g" onclick="hdRv()">'+(showRv?"إخفاء":"أظهر الحديث")+'</button></div>'}
+ return o+'<p class="hint">نصوص الأحاديث وأرقامها كتبتها من معرفتي، وراجعت منها رقمي ١٢ و٣٢ فقط في مصدر. تحقق منها بزر «تحقق في الدرر» قبل الحفظ.</p>'}
+
+S.cts=S.cts||[];let slT=null,slH=null;
+function sleepOn(){const e=document.getElementById("sl");e.classList.add("on");try{document.documentElement.requestFullscreen&&document.documentElement.requestFullscreen()}catch(x){}
+ document.getElementById("slb").innerHTML=S.cts.length?S.cts.map(c=>'<a class="btn g" href="tel:'+esc(c.p)+'">اتصال: '+esc(c.n)+'</a>').join(""):'<span class="hint">أضف جهات اتصال من قسم «اليوم»</span>';
+ const u=()=>document.getElementById("slc").textContent=new Date().toLocaleTimeString("ar",{hour:"2-digit",minute:"2-digit"});u();slT=setInterval(u,20000)}
+function sleepOff(){document.getElementById("sl").classList.remove("on");clearInterval(slT);try{document.fullscreenElement&&document.exitFullscreen()}catch(x){}}
+const slx=document.getElementById("slx");
+["pointerdown","touchstart"].forEach(ev=>slx.addEventListener(ev,()=>{slH=setTimeout(sleepOff,3000)},{passive:true}));
+["pointerup","pointerleave","touchend"].forEach(ev=>slx.addEventListener(ev,()=>clearTimeout(slH)));
+function addC(){const n=document.getElementById("cn").value.trim(),p=document.getElementById("cp").value.trim().replace(/[^\d+]/g,"");if(!n||!p)return;S.cts.push({n,p});save();render()}
+function delC(i){S.cts.splice(i,1);save();render()}
+function contactsHtml(){return '<div class="sec"><h3>جهات الاتصال في وضع النوم</h3></div><div class="card">'+S.cts.map((c,i)=>'<div class="row" style="margin-bottom:6px"><span class="t">'+esc(c.n)+'</span><span dir="ltr" class="hint">'+esc(c.p)+'</span><button class="btn s" onclick="delC('+i+')">حذف</button></div>').join("")+'<div class="row"><input id="cn" placeholder="الاسم"><input id="cp" placeholder="الرقم" dir="ltr" inputmode="tel"><button class="btn" onclick="addC()">إضافة</button></div><p class="hint">الأرقام تُحفظ في متصفحك فقط.</p></div>'}
+
+function backupHtml(){return '<div class="sec"><h3>نسخ احتياطي واستعادة</h3></div><div class="card"><div class="row"><button class="btn" onclick="exportB()">تجهيز النسخة</button><button class="btn g" onclick="importB()">استعادة من النص</button></div><textarea id="bk" dir="ltr" placeholder="النسخة تظهر هنا. للاستعادة الصق نسخة محفوظة ثم اضغط استعادة."></textarea><p class="hint" id="bkm"></p><p class="hint">انسخ النص واحفظه في ملاحظات هاتفك أو أرسله لنفسك. يحوي مهامك وسجلك وجهات الاتصال.</p></div>'}
+function bkm(t){const e=document.getElementById("bkm");if(e)e.textContent=t}
+function exportB(){const t=JSON.stringify(S),ta=document.getElementById("bk");ta.value=t;ta.select();try{navigator.clipboard.writeText(t).then(()=>bkm("تم النسخ إلى الحافظة."),()=>bkm("انسخ النص يدوياً من الصندوق."))}catch(e){bkm("انسخ النص يدوياً من الصندوق.")}}
+function importB(){try{const o=JSON.parse(document.getElementById("bk").value);if(!o||!Array.isArray(o.tasks))throw 0;S=Object.assign({},DEF,o);save();render();bkm("تمت الاستعادة.")}catch(e){bkm("النص غير صالح. تأكد أنك نسخته كاملاً.")}}
+function render(){
+ const P=pct(TD),n=S.tasks.filter(x=>(S.done[TD]||{})[x.id]).length;
+ const sorted=[...S.tasks].sort((a,b)=>a.s.localeCompare(b.s));
+ const row=(x,ctl)=>'<div class="task'+(((S.done[TD]||{})[x.id])?" done":"")+(x.p===1?" p1":"")+'"><span class="chk" onclick="tog(\''+x.id+'\')"></span><span class="t" onclick="tog(\''+x.id+'\')">'+esc(x.t)+'</span><span class="tag'+(x.k==="مرنة"?" fx":"")+'">'+x.k+'</span><span class="time">'+AR(x.s)+'</span>'+(ctl?'<button class="btn s" onclick="post(\''+x.id+'\')">تأجيل ٣٠د</button><button class="btn s" onclick="delT(\''+x.id+'\')">حذف</button>':'')+'</div>';
+ const dp=dd("pr"),q=(S.qr[TD]||{}).v||0,w=(S.wt[TD]||{}).v||0,dm=devMin(TD);
+ const nx=new Date().getHours()*60+new Date().getMinutes(),nextT=sorted.find(x=>mins(x.s)>=nx&&!(S.done[TD]||{})[x.id]);
+ document.getElementById("v-home").innerHTML='<div class="hero"><div class="ring"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="42" fill="none" stroke="#1f3d2e" stroke-width="9"/><circle cx="50" cy="50" r="42" fill="none" stroke="#c9a45c" stroke-width="9" stroke-linecap="round" stroke-dasharray="264" stroke-dashoffset="'+264*(1-P/100)+'"/></svg><b>'+AR(P)+'٪</b></div><div><h2>'+(P===100?"أتممت يومك، بارك الله فيك":n?"استمر، خطوة بعد خطوة":"ابدأ بأول مهمة")+'</h2><p>أنجزت '+AR(n)+' من '+AR(S.tasks.length)+(nextT?' · التالي: '+esc(nextT.t)+' '+AR(nextT.s):'')+'</p></div></div>'
+ +'<button class="btn" style="width:100%;margin-top:14px;padding:14px" onclick="sleepOn()">ابدأ وضع النوم</button><p class="hint">يعرض شاشة هادئة مع أزرار اتصال فقط. لا يقفل الهاتف نفسه، فهذا يحتاج إعدادات الهاتف.</p>'+'<div class="sec"><h3>اختصارات</h3></div><div class="links">'+S.links.map((l,i)=>linkHtml(l,i,0)).join("")+'</div><p class="hint">لإضافة اختصار أو حذفه: قسم «اليوم» ← أسفل الصفحة</p>'
+ +'<div class="sec"><h3>اليوم باختصار</h3></div><div class="card">الصلوات: <strong>'+AR(PR.filter(p=>dp[p[0]]).length)+'/٥</strong> · الورد: <strong>'+AR(q)+'/١٫٥</strong> صفحة · تطوير الذات: <strong>'+AR(dm)+'/٤٥</strong> د · الماء: <strong>'+AR(w)+'</strong> كوب</div>'
+ +'<div class="sec"><h3>مهام اليوم</h3></div>'+sorted.map(x=>row(x,0)).join("");
+ document.getElementById("v-day").innerHTML='<div class="sec"><h3>جدول اليوم</h3><small>الأخضر الداكن: ثابتة · الذهبي: مرنة</small></div>'+sorted.map(x=>row(x,1)).join("")
+ +'<div class="sec"><h3>مهمة جديدة</h3></div><div class="card"><div class="row"><input id="nt" placeholder="اسم المهمة"><input id="nts" type="time" value="09:00"><input id="nte" type="time" value="10:00"></div><div class="row" style="margin-top:8px"><select id="ntk"><option>ثابتة</option><option>مرنة</option></select><select id="ntp"><option value="1">أولوية عالية</option><option value="2" selected>متوسطة</option><option value="3">منخفضة</option></select><button class="btn" onclick="addT()">إضافة</button></div><p class="hint">المهام تتكرر يومياً. إن تأخرت مهمة فأجّلها دون أن يتأثر باقي الجدول.</p></div>'
+ +'<div class="sec"><h3>إدارة الاختصارات</h3></div><div class="card"><div class="links">'+S.links.map((l,i)=>linkHtml(l,i,1)).join("")+'</div><div class="row" style="margin-top:10px"><input id="ln" placeholder="الاسم"><input id="lu" placeholder="رابط https أو intent://" dir="ltr"><button class="btn" onclick="addLink()">إضافة</button></div><p class="hint">فتح تطبيق مثبت على أندرويد يكون بصيغة intent:// مع اسم حزمته. الرابط الجاهز لترتيل أخذته من مصدر خارجي ولم أجربه على هاتفك، فإن لم يفتح التطبيق سيفتح موقعه.</p></div>'+contactsHtml();
+ document.getElementById("v-faith").innerHTML='<div class="sec"><h3>الصلوات</h3><small>'+AR(PR.filter(p=>dp[p[0]]).length)+' من ٥</small></div>'+PR.map(p=>'<div class="task'+(dp[p[0]]?" done":"")+'" onclick="setPr(\''+p[0]+'\')"><span class="chk"></span><span class="t">'+p[1]+'</span></div>').join("")+'<p class="hint">مواقيت الصلاة بحسب موقعك تأتي في دفعة لاحقة.</p>'
+ +'<div class="sec"><h3>الورد القرآني</h3></div><div class="card"><div class="big">'+AR(q)+' / ١٫٥ صفحة</div><div class="bar"><i style="width:'+Math.min(100,q/1.5*100)+'%"></i></div><div class="row"><button class="btn" onclick="qr(.5)">+ نصف صفحة</button><button class="btn g" onclick="qr(-.5)">−</button><a class="btn g" target="_blank" rel="noopener" href="'+esc(S.links[0]?S.links[0].u:"#")+'">افتح '+esc(S.links[0]?S.links[0].n:"")+'</a></div></div>'
+ +'<div class="sec"><h3>الأذكار (٨ دقائق)</h3></div><div class="card"><div class="big" id="clk">'+AR(Math.floor(left/60))+":"+AR(String(left%60).padStart(2,"0"))+'</div><div class="row"><button class="btn" onclick="adh()">'+(tm?"إيقاف":"ابدأ")+'</button>'+((S.ad[TD]||{}).v?'<span>✓ تمّ اليوم</span>':'')+'</div></div>'
+ +hadithHtml();
+ document.getElementById("v-dev").innerHTML='<div class="sec"><h3>تطوير الذات اليوم</h3><small>الهدف ٤٥ دقيقة</small></div><div class="card"><div class="big">'+AR(dm)+' / ٤٥ د</div><div class="bar"><i style="width:'+Math.min(100,dm/45*100)+'%"></i></div></div>'+TRK.map(t=>'<div class="task"><span class="t">'+t[1]+'</span><span class="time">'+AR((S.dv[TD]||{})[t[0]]||0)+' د</span><button class="btn s" onclick="devAdd(\''+t[0]+'\',15)">+١٥</button><button class="btn s" onclick="devAdd(\''+t[0]+'\',-15)">−</button></div>').join("")+lessonsHtml()+sourcesHtml();
+ document.getElementById("v-health").innerHTML='<div class="sec"><h3>الماء</h3></div><div class="card"><div class="big">'+AR(w)+' كوب</div><div class="row"><button class="btn" onclick="water(1)">+ كوب</button><button class="btn g" onclick="water(-1)">−</button></div></div><div class="card" style="margin-top:10px">التمرين اليوم: '+((S.done[TD]||{})["a4"]?"✓ تمّ":"لم يُسجَّل بعد")+'. تسجيل المجموعات والأوزان ومتابعة النوم تأتي في الدفعة التالية.</div>';
+ const days=[6,5,4,3,2,1,0].map(o=>day(o));
+ document.getElementById("v-stats").innerHTML='<div class="sec"><h3>آخر ٧ أيام: إنجاز المهام</h3></div><div class="card"><div class="cols">'+days.map(d=>'<div><i style="height:'+Math.max(3,pct(d)*.7)+'px"></i>'+AR(pct(d))+'</div>').join("")+'</div></div><div class="sec"><h3>دقائق تطوير الذات</h3></div><div class="card"><div class="cols">'+days.map(d=>'<div><i style="height:'+Math.max(3,Math.min(devMin(d),90)*.8)+'px"></i>'+AR(devMin(d))+'</div>').join("")+'</div></div><div class="sec"><h3>مراجعة الأسبوع</h3></div><div class="card">'+RQ.map((q,i)=>'<label>'+q+'</label><textarea class="rv" data-q="'+i+'"></textarea>').join("")+'<button class="btn" onclick="saveRv()">حفظ المراجعة</button></div>'+backupHtml();
+}
+const NAV=[["home","الرئيسية","M3 11l9-8 9 8v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"],["day","اليوم","M3 5h18v16H3zM3 10h18M8 3v4M16 3v4"],["faith","العبادة","M12 3a7 7 0 1 0 8 9 6 6 0 0 1-8-9z"],["dev","التطوير","M2 9l10-5 10 5-10 5zM6 11v5c3 2 9 2 12 0v-5"],["health","الصحة","M12 21s-8-5-8-11a4.5 4.5 0 0 1 8-2.5A4.5 4.5 0 0 1 20 10c0 6-8 11-8 11z"],["stats","التقارير","M4 20V10M10 20V4M16 20v-7M22 20H2"]];
+NAV.forEach(([id,l,d],i)=>{const b=document.createElement("button");b.dataset.id=id;b.innerHTML='<svg viewBox="0 0 24 24"><path d="'+d+'"/></svg>'+l;if(!i)b.className="on";b.onclick=()=>go(id);document.getElementById("nav").appendChild(b)});
+document.getElementById("date").textContent=new Date().toLocaleDateString("ar",{weekday:"long",day:"numeric",month:"long"});
+render();
+</script><script>if("serviceWorker" in navigator)navigator.serviceWorker.register("sw.js").catch(()=>{});</script></body></html>
